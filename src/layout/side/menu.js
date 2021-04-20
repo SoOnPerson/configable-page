@@ -1,3 +1,4 @@
+
 export default {
   name: 'SMenu',
   props: {
@@ -9,6 +10,11 @@ export default {
       type: Object,
       required: false,
       default: () => { }
+    },
+    customClass: {
+      type: String,
+      required: false,
+      default: () => ''
     },
     mode: {
       type: String,
@@ -67,13 +73,13 @@ export default {
       return h('el-menu-item-group', {}, [
         h('el-menu-item', { props: { index: menu.meta.id.toString(), route: menu.path } }, [
           this.renderIcon(h, menu.meta.icon),
-          h('span', [menu.title])
+          h('span', [menu.meta.title])
         ])
       ])
     },
     renderSubMenu: function (h, menu) {
       const this2_ = this
-      const subItem = [h('template', { slot: 'title' }, [this.renderIcon(h, menu.meta.icon), h('span', [menu.title])])]
+      const subItem = [h('template', { slot: 'title' }, [this.renderIcon(h, menu.meta.icon), h('span', [menu.meta.title])])]
       const itemArr = []
       menu.children.forEach(function (item) {
         itemArr.push(this2_.renderItem(h, item))
@@ -82,7 +88,9 @@ export default {
         'el-submenu',
         {
           props: {
-            index: menu.meta.id.toString()
+            index: menu.meta.id.toString(),
+            popperClass: this.$props.customClass,
+            popperAppendToBody: true
           }
         },
         subItem.concat(itemArr)
@@ -144,7 +152,8 @@ export default {
           uniqueOpened: this.$props.uniqueOpened,
           collapseTransition: this.$props.collapseTransition,
           collapse: this.$props.collapse,
-          mode: this.$props.mode
+          mode: this.$props.mode,
+          defaultActive: this.$route.meta.id.toString()
         },
         style: { ...this.$props.styleObject }
       },

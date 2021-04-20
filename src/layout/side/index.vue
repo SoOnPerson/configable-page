@@ -2,18 +2,19 @@
  * @Author: SoOnPerson
  * @Date: 2021-04-18 18:39:09
  * @LastEditors: SoOnPerson
- * @LastEditTime: 2021-04-18 22:44:22
+ * @LastEditTime: 2021-04-20 09:38:32
  * @Descripttion: 
 -->
 <template>
-  <el-aside :style="{ width: collapse ? '64px' : '200px' }">
-    <el-image style="width: 100%; height: 50px" :src="openedUrl" fit="fill">
-    </el-image>
+  <el-aside :style="{ width: collapse ? '64px' : '200px', overflow: 'hidden' }">
+    <el-image class="side-menu-img" :src="openedUrl" fit="fill" />
     <s-menu
+      customClass="s-menu"
       :style-object="{
-        width: '99%',
+        width: 'calc(100% + 18px)',
         height: 'calc(100vh - 60px)',
-        overflow: 'hidden',
+        overflowX: 'hidden',
+        overflowY: 'scroll',
       }"
       :menu="menu"
       :collapse="collapse"
@@ -24,6 +25,7 @@
 <script>
 import SMenu from "./menu";
 export default {
+  name: "Side",
   components: { SMenu },
   computed: {
     menu: function () {
@@ -46,4 +48,27 @@ export default {
 </script>
 
 <style>
+.side-menu-img {
+  width: 100%;
+  height: 50px;
+  display: block;
+}
+.el-menu-item-group__title {
+  padding: 0;
+}
+.s-menu > .el-menu--popup {
+  max-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.s-menu > .el-menu--popup::-webkit-scrollbar-thumb {
+  background: #d3dce6;
+  border-radius: 20px;
+}
+.s-menu > .el-menu--popup::-webkit-scrollbar {
+  width: 6px;
+}
+.s-menu > .el-menu--popup::-webkit-scrollbar-track-piece {
+  background: #ffffff;
+}
 </style>

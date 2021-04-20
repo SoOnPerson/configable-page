@@ -2,7 +2,7 @@
  * @Author: SoOnPerson
  * @Date: 2021-04-17 13:00:05
  * @LastEditors: SoOnPerson
- * @LastEditTime: 2021-04-17 13:01:53
+ * @LastEditTime: 2021-04-19 15:27:38
  * @Descripttion: element ui 的按需加载 （偷懒，直接全部拿过来了）
  */
 import Vue from 'vue';
@@ -83,7 +83,8 @@ import {
   Loading,
   MessageBox,
   Message,
-  Notification
+  Notification,
+  Scrollbar
 } from 'element-ui';
 
 Vue.use(Pagination);
@@ -159,7 +160,7 @@ Vue.use(Calendar);
 Vue.use(Backtop);
 Vue.use(PageHeader);
 Vue.use(CascaderPanel);
-
+Vue.use(Scrollbar);
 Vue.use(Loading.directive);
 
 Vue.prototype.$loading = Loading.service;

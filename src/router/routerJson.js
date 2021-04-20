@@ -2,10 +2,10 @@
  * @Author: SoOnPerson
  * @Date: 2021-04-17 14:11:28
  * @LastEditors: SoOnPerson
- * @LastEditTime: 2021-04-18 23:38:55
+ * @LastEditTime: 2021-04-19 22:34:33
  * @Descripttion:
  */
-export default [
+const routersList = [
   {
     id: 1,
     parentId: -1,
@@ -24,7 +24,7 @@ export default [
     type: 1,
     title: '用户管理',
     path: '/user',
-    component: '/publicComponent',
+    component: '/PublicLayout',
     hidden: false,
     sort: 2,
     url: '/user/list',
@@ -36,7 +36,7 @@ export default [
     type: 1,
     title: '菜单管理',
     path: '/menu',
-    component: '/publicComponent',
+    component: '/PublicLayout',
     hidden: false,
     sort: 1,
     url: '/menu/list',
@@ -48,10 +48,25 @@ export default [
     type: 1,
     title: '一级菜单管理',
     path: '/firstmenu',
-    component: '/publicComponent',
+    component: '/PublicLayout',
     hidden: false,
     sort: 1,
     url: '/fmenu/list',
     icon: 'el-icon-user'
   }
 ]
+for (let index = 0; index < 30; index++) {
+  routersList.push({
+    id: 1000 + index,
+    parentId: 1,
+    type: 1,
+    title: '测试数据' + 1000 + index,
+    path: '/user12' + index,
+    component: '/PublicLayout',
+    hidden: false,
+    sort: 4 + index,
+    url: '/user12' + '/list',
+    icon: 'el-icon-user'
+  })
+}
+export default routersList

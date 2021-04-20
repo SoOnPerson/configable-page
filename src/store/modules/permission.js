@@ -25,10 +25,10 @@ function addDynamicMenuRoutes(menuList) {
         let route = {
           name: pascaltoCamel(item.path),
           path: item.path,
-          title: item.title,
           hidden: item.hidden,
           meta: {
             id: item.id,
+            title: item.title,
             sort: item.sort,
             icon: item.icon,
             url: item.url,
@@ -40,8 +40,8 @@ function addDynamicMenuRoutes(menuList) {
         if (item.parentId == -1) {
           route.component = () => import('@/layout/MainLayout.vue')
         } else {
-          route.component = () => import("@/pages" +
-            (item.component || '/publicComponent'))
+          route.component = () => import("@/layout" +
+            (item.component || '/PublicLayout'))
         }
         menusObject[item.id.toString()] = route
         break
@@ -96,7 +96,6 @@ const permission = {
   },
   mutations: {
     ADD_ROUTERS: (state, menuList) => {
-      console.log('add', menuList);
       state.menuList = menuList
     }
   },

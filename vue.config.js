@@ -8,7 +8,8 @@ module.exports = {
         resolve: {
             alias: {
                 '@': resolve('src'),
-                '@components': resolve('src/components')
+                '@components': resolve('src/components'),
+                '@pages': resolve('src/pages')
             }
         }
     }
