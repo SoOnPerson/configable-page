@@ -1,22 +1,18 @@
 <template>
   <div class="mcontainer">
-    <div style="height: 1000px; width: 100%">{{ name }}</div>
+    <public-page></public-page>
   </div>
 </template>
 
 <script>
+import PublicPage from "@/components/publicPage";
 export default {
+  components: { PublicPage },
   data() {
-    return {
-      name: "loading",
-    };
+    return {};
   },
-  mounted() {
-    this.name = "loading";
-    setTimeout(() => {
-      this.name = "done";
-    }, 1000);
-  },
+  mounted() {},
+  methods: {},
 };
 </script>
 
@@ -24,7 +20,6 @@ export default {
 .mcontainer {
   height: calc(100vh - 140px);
   overflow: auto;
-  background-color: rgb(128, 128, 230);
 }
 .mcontainer::-webkit-scrollbar-thumb {
   background: #d3dce6;

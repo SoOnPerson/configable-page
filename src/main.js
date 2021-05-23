@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import './router/permission'
 import "./core/lazy_lib/element"
+import './style/index.css'
 Vue.config.productionTip = false
 // Ant - 全局-路由离开时拦截，看是否需要删除组件缓存
 Vue.mixin({

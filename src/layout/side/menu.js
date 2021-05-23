@@ -52,12 +52,6 @@ export default {
     }
   },
   created() {
-    // this.updateMenu()
-  },
-  watch: {
-    $route: function () {
-      this.updateMenu()
-    }
   },
   methods: {
     renderIcon: function (h, icon) {
@@ -122,25 +116,6 @@ export default {
       } else {
         this.openKeys = latestOpenKey ? [latestOpenKey] : []
       }
-    },
-    updateMenu() {
-      // const routes = this.$route.matched.concat()
-
-      // if (routes.length >= 4 && this.$route.meta.hidden) {
-      //   routes.pop()
-      //   this.selectedKeys = [routes[2].path]
-      // } else {
-      //   this.selectedKeys = [routes.pop().path]
-      // }
-
-      // const openKeys = []
-      // if (this.mode === 'inline') {
-      //   routes.forEach(item => {
-      //     openKeys.push(item.path)
-      //   })
-      // }
-
-      // this.collapsed ? (this.cachedOpenKeys = openKeys) : (this.openKeys = openKeys)
     }
   },
   render(h) {

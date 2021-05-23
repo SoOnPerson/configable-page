@@ -2,14 +2,17 @@
  * @Author: SoOnPerson
  * @Date: 2021-04-18 18:39:09
  * @LastEditors: SoOnPerson
- * @LastEditTime: 2021-04-20 09:38:32
+ * @LastEditTime: 2021-04-21 14:51:40
  * @Descripttion: 
 -->
 <template>
-  <el-aside :style="{ width: collapse ? '64px' : '200px', overflow: 'hidden' }">
+  <el-aside
+    class="aside-menu-blue"
+    :style="{ width: collapse ? '64px' : '200px', overflow: 'hidden' }"
+  >
     <el-image class="side-menu-img" :src="openedUrl" fit="fill" />
     <s-menu
-      customClass="s-menu"
+      customClass="s-menu aside-menu-blue"
       :style-object="{
         width: 'calc(100% + 18px)',
         height: 'calc(100vh - 60px)',
@@ -24,6 +27,7 @@
 
 <script>
 import SMenu from "./menu";
+import "./style/blue.css";
 export default {
   name: "Side",
   components: { SMenu },
@@ -60,6 +64,8 @@ export default {
   max-height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
+  margin-left: 0;
+  margin-right: 0;
 }
 .s-menu > .el-menu--popup::-webkit-scrollbar-thumb {
   background: #d3dce6;
